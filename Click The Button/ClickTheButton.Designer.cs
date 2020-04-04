@@ -31,13 +31,16 @@
             this.buttonClick = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.darkModeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lightModeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tinyModeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.normalModeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.labelClicks = new System.Windows.Forms.Label();
-            this.normalModeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.lightModeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.expertModeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.onToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.offToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -69,17 +72,11 @@
             this.darkModeToolStripMenuItem,
             this.lightModeToolStripMenuItem,
             this.tinyModeToolStripMenuItem,
-            this.normalModeToolStripMenuItem});
+            this.normalModeToolStripMenuItem,
+            this.expertModeToolStripMenuItem});
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
             this.settingsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.settingsToolStripMenuItem.Text = "Settings";
-            // 
-            // aboutToolStripMenuItem
-            // 
-            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
-            this.aboutToolStripMenuItem.Text = "About";
-            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // darkModeToolStripMenuItem
             // 
@@ -88,12 +85,33 @@
             this.darkModeToolStripMenuItem.Text = "Dark Mode";
             this.darkModeToolStripMenuItem.Click += new System.EventHandler(this.darkModeToolStripMenuItem_Click);
             // 
+            // lightModeToolStripMenuItem
+            // 
+            this.lightModeToolStripMenuItem.Name = "lightModeToolStripMenuItem";
+            this.lightModeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.lightModeToolStripMenuItem.Text = "Light Mode";
+            this.lightModeToolStripMenuItem.Click += new System.EventHandler(this.lightModeToolStripMenuItem_Click);
+            // 
             // tinyModeToolStripMenuItem
             // 
             this.tinyModeToolStripMenuItem.Name = "tinyModeToolStripMenuItem";
             this.tinyModeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.tinyModeToolStripMenuItem.Text = "Tiny Mode";
             this.tinyModeToolStripMenuItem.Click += new System.EventHandler(this.tinyModeToolStripMenuItem_Click);
+            // 
+            // normalModeToolStripMenuItem
+            // 
+            this.normalModeToolStripMenuItem.Name = "normalModeToolStripMenuItem";
+            this.normalModeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.normalModeToolStripMenuItem.Text = "Normal Mode";
+            this.normalModeToolStripMenuItem.Click += new System.EventHandler(this.normalModeToolStripMenuItem_Click);
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
@@ -111,19 +129,28 @@
             this.labelClicks.TabIndex = 2;
             this.labelClicks.Text = "...";
             // 
-            // normalModeToolStripMenuItem
+            // expertModeToolStripMenuItem
             // 
-            this.normalModeToolStripMenuItem.Name = "normalModeToolStripMenuItem";
-            this.normalModeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.normalModeToolStripMenuItem.Text = "Normal Mode";
-            this.normalModeToolStripMenuItem.Click += new System.EventHandler(this.normalModeToolStripMenuItem_Click);
+            this.expertModeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.onToolStripMenuItem,
+            this.offToolStripMenuItem});
+            this.expertModeToolStripMenuItem.Name = "expertModeToolStripMenuItem";
+            this.expertModeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.expertModeToolStripMenuItem.Text = "Expert Mode";
             // 
-            // lightModeToolStripMenuItem
+            // onToolStripMenuItem
             // 
-            this.lightModeToolStripMenuItem.Name = "lightModeToolStripMenuItem";
-            this.lightModeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.lightModeToolStripMenuItem.Text = "Light Mode";
-            this.lightModeToolStripMenuItem.Click += new System.EventHandler(this.lightModeToolStripMenuItem_Click);
+            this.onToolStripMenuItem.Name = "onToolStripMenuItem";
+            this.onToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.onToolStripMenuItem.Text = "On";
+            this.onToolStripMenuItem.Click += new System.EventHandler(this.onToolStripMenuItem_Click);
+            // 
+            // offToolStripMenuItem
+            // 
+            this.offToolStripMenuItem.Name = "offToolStripMenuItem";
+            this.offToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.offToolStripMenuItem.Text = "Off";
+            this.offToolStripMenuItem.Click += new System.EventHandler(this.offToolStripMenuItem_Click);
             // 
             // ClickTheButton
             // 
@@ -155,6 +182,9 @@
         private System.Windows.Forms.Label labelClicks;
         private System.Windows.Forms.ToolStripMenuItem normalModeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem lightModeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem expertModeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem onToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem offToolStripMenuItem;
     }
 }
 

@@ -16,6 +16,8 @@ namespace Click_The_Button
         Random rand = new Random();
         private PictureBox zone;        
         int clicks = 0;
+        bool on = true;
+        bool off = true;
 
         public ClickTheButton()
         {
@@ -58,6 +60,7 @@ namespace Click_The_Button
             buttonClick.Height = 10;
             clicks = 0;
             UpdateClicks();
+            
         }
 
         private void normalModeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -66,6 +69,7 @@ namespace Click_The_Button
             buttonClick.Height = 41;
             clicks = 0;
             UpdateClicks();
+            
         }
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -99,6 +103,30 @@ namespace Click_The_Button
             zone.BackColor = Color.White;
         }
 
-       
+        private void onToolStripMenuItem_Click(object sender, EventArgs e)
+        {            
+            if(on == true)
+            {
+            buttonClick.Left = rand.Next(50, 350);
+            buttonClick.Top = rand.Next(50, 350);
+            buttonClick.Width = rand.Next(10, 41);
+            buttonClick.Height = rand.Next(10, 41);
+            }
+           
+        }
+
+        private void offToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            off = false;
+            if (off == false)
+            {
+                buttonClick.Width = 41;
+                buttonClick.Height = 41;
+            }
+            else if (off == true)
+            {
+                on = true;
+            }
+        }
     }
 }
