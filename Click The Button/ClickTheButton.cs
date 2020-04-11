@@ -16,8 +16,8 @@ namespace Click_The_Button
         Random rand = new Random();
         private PictureBox zone;        
         int clicks = 0;
-        bool on = true;
-        bool off = true;
+        bool expmode = false;
+       
 
         public ClickTheButton()
         {
@@ -55,7 +55,8 @@ namespace Click_The_Button
         }
 
         private void tinyModeToolStripMenuItem_Click(object sender, EventArgs e)
-        {            
+        {
+            expmode = false;
             buttonClick.Width = 10;
             buttonClick.Height = 10;
             clicks = 0;
@@ -65,6 +66,7 @@ namespace Click_The_Button
 
         private void normalModeToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            expmode = false;
             buttonClick.Width = 41;
             buttonClick.Height = 41;
             clicks = 0;
@@ -104,29 +106,27 @@ namespace Click_The_Button
         }
 
         private void onToolStripMenuItem_Click(object sender, EventArgs e)
-        {            
-            if(on == true)
+        {
+            
+            if(expmode == false)
             {
+                expmode = true;
+            }
             buttonClick.Left = rand.Next(50, 350);
             buttonClick.Top = rand.Next(50, 350);
             buttonClick.Width = rand.Next(10, 41);
             buttonClick.Height = rand.Next(10, 41);
-            }
-           
         }
 
         private void offToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            off = false;
-            if (off == false)
+            
+            if (expmode == true)
             {
+                expmode = false;
                 buttonClick.Width = 41;
                 buttonClick.Height = 41;
-            }
-            else if (off == true)
-            {
-                on = true;
-            }
+            }            
         }
     }
 }
