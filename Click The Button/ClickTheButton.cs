@@ -15,7 +15,7 @@ namespace Click_The_Button
     {
         Random rand = new Random();
         private PictureBox zone;        
-        int clicks = 0;
+        int clicks = 0;        
         bool expmode = false;
        
 
@@ -27,9 +27,13 @@ namespace Click_The_Button
         }       
 
         private void buttonClick_Click(object sender, EventArgs e)
-        {                                  
+        {
+            int red = rand.Next(0, 256);
+            int blue = rand.Next(0, 256);
+            int green = rand.Next(0, 256);            
             buttonClick.Left = rand.Next(50, 350);
-            buttonClick.Top = rand.Next(50, 350);           
+            buttonClick.Top = rand.Next(50, 350);
+            buttonClick.BackColor = Color.FromArgb(red, blue, green);
             clicks++;
             UpdateClicks();            
         }
@@ -82,8 +86,7 @@ namespace Click_The_Button
         private void darkModeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Color darkColor = Color.Gray;
-            Color lightColor = Color.Black;
-            buttonClick.BackColor = darkColor;
+            Color lightColor = Color.Black;           
             buttonClick.ForeColor = lightColor;
             menuStrip1.BackColor = darkColor;
             menuStrip1.ForeColor = lightColor;
@@ -95,8 +98,7 @@ namespace Click_The_Button
         private void lightModeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Color darkColor = Color.Black;
-            Color lightColor = Color.WhiteSmoke;
-            buttonClick.BackColor = lightColor;
+            Color lightColor = Color.WhiteSmoke;            
             buttonClick.ForeColor = darkColor;
             menuStrip1.BackColor = lightColor;
             menuStrip1.ForeColor = darkColor;
@@ -107,25 +109,27 @@ namespace Click_The_Button
 
         private void onToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
-            if(expmode == false)
+           
+            if (expmode == false)
             {
-                expmode = true;
+                expmode = true;                
             }
-            buttonClick.Left = rand.Next(50, 350);
-            buttonClick.Top = rand.Next(50, 350);
             buttonClick.Width = rand.Next(10, 41);
             buttonClick.Height = rand.Next(10, 41);
+
+            clicks = 0;
+            UpdateClicks();
         }
 
         private void offToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            
+        {            
             if (expmode == true)
             {
                 expmode = false;
                 buttonClick.Width = 41;
                 buttonClick.Height = 41;
+                clicks = 0;
+                UpdateClicks();
             }            
         }
     }
